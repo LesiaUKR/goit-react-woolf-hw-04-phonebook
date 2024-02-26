@@ -20,7 +20,9 @@ export const App = () => {
   }, [contacts]);
 
   const addContact = newContact => {
-    contacts.filter(contact => contact.name === newContact.name).length
+    contacts.filter(
+      contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+    ).length
       ? alert(`${newContact.name}: is already in contacts`)
       : setContacts(prevContacts => [...prevContacts, newContact]);
   };
